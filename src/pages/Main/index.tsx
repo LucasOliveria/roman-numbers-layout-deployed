@@ -20,14 +20,15 @@ function Main() {
       return romanNumeral.replace(regex, '<span class="overline">$1</span>');
     }
 
+    const converter = new RomanNumeralConverter();
+
     if (submitter.name === "romanToArabic") {
       if (!form.roman) {
         return
       }
 
-      const conversor = new RomanNumeralConverter();
 
-      const response = conversor.romanToArabic(form.roman) as TRomanNumeralMapping | string;
+      const response = converter.romanToArabic(form.roman) as TRomanNumeralMapping | string;
 
       if (typeof response === "string") {
         return setSpan(response);
@@ -46,9 +47,7 @@ function Main() {
         return
       }
 
-      const conversor = new RomanNumeralConverter();
-
-      const response = conversor.arabicToRoman(Number(form.decimal)) as TRomanNumeralMapping
+      const response = converter.arabicToRoman(Number(form.decimal)) as TRomanNumeralMapping
 
       const formattedRomanNumeral = formatRomanNumeral(response.romanNumeral);
       setSpan(`${formattedRomanNumeral} = ${response.value}`);
