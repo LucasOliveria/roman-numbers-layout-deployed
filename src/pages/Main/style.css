@@ -1,0 +1,125 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  border-bottom-right-radius: 65%;
+  background-color: #343a40d3;
+}
+
+.container-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 42rem;
+  height: 30rem;
+  padding: 3rem 1rem;
+  background-color: #a8dadc;
+  border-radius: 0.9rem;
+}
+
+.container-form h2 {
+  font-size: 1.8rem;
+  margin-bottom: 4rem;
+  color: #1d3557;
+}
+
+.container-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 3rem;
+  height: 3.7rem;
+  width: 36.8rem;
+}
+
+.container-input label {
+  color: #1d3557;
+  font-weight: 500;
+}
+
+.container-input input {
+  all: unset;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+  background-color: #ffffff;
+}
+
+.container-input button {
+  all: unset;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  width: 10rem;
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background-color: #457b9d;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.container-input button:hover {
+  background-color: #ffffff;
+  color: #457b9d;
+  border: 1px solid #457b9d;
+}
+
+.container-form span {
+  color: #1d3557;
+  text-transform: uppercase;
+  font-size: 2.1rem;
+  font-weight: 500;
+}
+
+@media (max-width: 500px) {
+  .container-form {
+    width: 35rem;
+    height: 26rem;
+    padding: 2rem 0.9rem;
+  }
+
+  .container-form h2 {
+    font-size: 1.7rem;
+    margin-bottom: 3rem;
+  }
+
+  .container-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.3rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    height: 3.7rem;
+    width: 33.8rem;
+  }
+
+  .container-input label {
+    font-size: 1.3rem;
+    color: #1d3557;
+    font-weight: 500;
+  }
+
+  .container-input button {
+    width: 6.8rem;
+    margin-right: 0.3rem;
+    font-size: 1rem;
+  }
+
+  .container-input button:hover {
+    background-color: #457b9d;
+    color: #ffffff;
+    border: none;
+  }
+
+  .container-form span {
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+
+}
