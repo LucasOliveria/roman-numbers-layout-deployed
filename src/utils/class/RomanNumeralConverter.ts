@@ -115,6 +115,11 @@ export class RomanNumeralConverter {
       }
     }
 
+    // Verificar se o valor encontrado é zero. Caso sim, isso configura um erro e a mensagem deve ser informada
+    if (arabicNumeral === 0) {
+      return "Informe um algarismo romano válido";
+    }
+
     // Apos obter o numero decimal correspondente é feita uma ultima correção usando o método arabicToRoman
     // Retorna um objeto com número romano final e o valor decimal passado como argumento
     return this.arabicToRoman(arabicNumeral)
