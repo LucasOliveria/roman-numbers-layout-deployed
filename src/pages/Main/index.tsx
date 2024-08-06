@@ -77,8 +77,6 @@ function Main() {
     setForm({ ...form, [event.target.name]: event.target.value })
   }
 
-  console.log("vinculum: ", spanVinculum);
-  console.log("span: ", span);
   return (
     <div className='main'>
       <div className="container-form">
