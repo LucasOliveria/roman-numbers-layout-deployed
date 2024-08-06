@@ -9,16 +9,14 @@ function Main() {
     decimal: ""
   });
   const [span, setSpan] = useState("");
+  const [spanVinculum, setSpanVinculum] = useState("");
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
     const submitEvent = event.nativeEvent as SubmitEvent;
     const submitter = submitEvent.submitter as HTMLButtonElement
-
-    function formatRomanNumeral(romanNumeral: string): string {
-      const regex = /\|([^\|]+)\|/g;
-      return romanNumeral.replace(regex, '<span class="overline">$1</span>');
-    }
+    setSpanVinculum("");
+    setSpan("");
 
     const converter = new RomanNumeralConverter();
 
@@ -26,36 +24,45 @@ function Main() {
       if (!form.roman) {
         return
       }
-
-
       const response = converter.romanToArabic(form.roman) as TRomanNumeralMapping | string;
 
       if (typeof response === "string") {
         return setSpan(response);
       }
 
-      const formattedRomanNumeral = formatRomanNumeral(response.romanNumeral);
-      setSpan(`${formattedRomanNumeral} = ${response.value}`);
-
-      const cleanedRomanNumeral = response.romanNumeral.replace(/\|/g, '');
-      setForm({ roman: cleanedRomanNumeral, decimal: `${response.value}` });
-      return
+      handleVinculum(response);
+      return;
     }
 
     if (submitter.name === "arabicToRoman") {
       if (!form.decimal) {
-        return
+        return;
       }
 
-      const response = converter.arabicToRoman(Number(form.decimal)) as TRomanNumeralMapping
+      if (Number(form.decimal) > 3888888) {
+        return setSpan("Valor máximo aceitável: 3888888");
+      }
 
-      const formattedRomanNumeral = formatRomanNumeral(response.romanNumeral);
-      setSpan(`${formattedRomanNumeral} = ${response.value}`);
+      const response = converter.arabicToRoman(Number(form.decimal)) as TRomanNumeralMapping;
+      handleVinculum(response);
+      return;
+    }
+  }
+
+  function handleVinculum(response: TRomanNumeralMapping) {
+    const arrayRomanNumeral = response.romanNumeral.split("|");
+
+    if (arrayRomanNumeral.length > 1) {
+      setSpanVinculum(arrayRomanNumeral[1]);
+      setSpan(`${arrayRomanNumeral[2]} = ${response.value}`);
 
       const cleanedRomanNumeral = response.romanNumeral.replace(/\|/g, '');
       setForm({ roman: cleanedRomanNumeral, decimal: `${response.value}` });
       return
     }
+
+    setSpan(`${response.romanNumeral} = ${response.value}`);
+    setForm({ roman: response.romanNumeral, decimal: `${response.value}` });
   }
 
   function handleChangeInputs(event: ChangeEvent<HTMLInputElement>) {
@@ -69,6 +76,9 @@ function Main() {
 
     setForm({ ...form, [event.target.name]: event.target.value })
   }
+
+  console.log("vinculum: ", spanVinculum);
+  console.log("span: ", span);
   return (
     <div className='main'>
       <div className="container-form">
@@ -85,7 +95,7 @@ function Main() {
             <button name='arabicToRoman'>CONVERTER</button>
           </div>
         </form>
-        <span dangerouslySetInnerHTML={{ __html: span }}></span>
+        <span><span className='overline'>{spanVinculum}</span>{span}</span>
       </div>
     </div>
   )
