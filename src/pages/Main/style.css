@@ -47,7 +47,6 @@
   border-radius: 0.5rem;
   padding-left: 1rem;
   background-color: #ffffff;
-  flex-shrink: 1;
 }
 
 .container-input button {
@@ -108,6 +107,10 @@
     font-size: 1.3rem;
     color: #1d3557;
     font-weight: 500;
+  }
+
+  .container-input input {
+    width: 18rem;
   }
 
   .container-input button {
