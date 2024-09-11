@@ -33,7 +33,7 @@
   width: 100%;
   margin-bottom: 3rem;
   height: 3.7rem;
-  width: 36.8rem;
+  /* width: 36.8rem; */
 }
 
 .container-input label {
@@ -101,7 +101,7 @@
     width: 100%;
     margin-bottom: 2rem;
     height: 3.7rem;
-    width: 33.8rem;
+    /* width: 33.8rem; */
   }
 
   .container-input label {
