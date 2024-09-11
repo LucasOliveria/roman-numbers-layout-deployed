@@ -81,7 +81,7 @@
   text-decoration: overline;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 721px) {
   .container-form {
     width: 35rem;
     height: 26rem;
