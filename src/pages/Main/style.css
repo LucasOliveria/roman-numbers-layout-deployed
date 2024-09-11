@@ -85,7 +85,7 @@
   .container-form {
     width: 35rem;
     height: 26rem;
-    padding: 2rem 0.9rem;
+    padding: 2rem 0rem;
   }
 
   .container-form h2 {
@@ -97,11 +97,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0.3rem;
-    width: 100%;
+    gap: 0.2rem;
     margin-bottom: 2rem;
     height: 3.7rem;
     /* width: 33.8rem; */
+    border: 1px solid red;
   }
 
   .container-input label {
@@ -112,7 +112,6 @@
 
   .container-input button {
     width: 6.8rem;
-    margin-right: 0.3rem;
     font-size: 1rem;
   }
 
