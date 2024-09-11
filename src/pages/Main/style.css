@@ -47,6 +47,7 @@
   border-radius: 0.5rem;
   padding-left: 1rem;
   background-color: #ffffff;
+  flex-shrink: 1;
 }
 
 .container-input button {
